@@ -18,8 +18,8 @@ export const Nav = styled.nav`
     @media screen and (max-width: 960px) {
         transition: 0.8s all ease;
     }
-`
-
+`;
+// Barra de navegação
 
 export const NavbarContainer = styled.div`
     display: flex;
@@ -30,6 +30,7 @@ export const NavbarContainer = styled.div`
     padding: 0 24px;
     max-width: 1100px;
 `;
+// Container para a barra de navegação
 
 export const NavLogo = styled(LinkR)`
     color: #fff;
@@ -42,6 +43,7 @@ export const NavLogo = styled(LinkR)`
     font-weight: bold;
     text-decoration: none;
 `;
+// Logo da navegação
 
 export const MobileIcon = styled.div`
     display: none;
@@ -57,6 +59,7 @@ export const MobileIcon = styled.div`
         color: #fff;
     }
 `;
+// Ícone para dispositivos móveis
 
 export const NavMenu = styled.ul`
     display: flex;
@@ -69,10 +72,12 @@ export const NavMenu = styled.ul`
         display: none;
     }
 `;
+// Menu de navegação
 
 export const NavItem = styled.li`
     height: 80px;
 `;
+// Item de navegação
 
 export const NavLinks = styled(LinkS)`
     color: #fff;
@@ -87,6 +92,7 @@ export const NavLinks = styled(LinkS)`
         border-bottom: 3px solid #01bf71;
     }
 `;
+// Links de navegação
 
 export const NavBtn = styled.nav`
     display: flex;
@@ -96,6 +102,7 @@ export const NavBtn = styled.nav`
         display: none;
     }
 `;
+// Botões de navegação
 
 export const NavBtnLink = styled(LinkR)`
     border-radius: 50px;
@@ -116,3 +123,5 @@ export const NavBtnLink = styled(LinkR)`
         color: #010606;
     }
 `;
+// Links de botões de navegação
+

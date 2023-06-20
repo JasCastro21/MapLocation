@@ -1,10 +1,12 @@
 .map {
   height: 100vh;
 }
+/* Define a altura da classe .map como 100% da altura da viewport */
 
 .map-marker {
   margin-top: -30px;
 }
+/* Define a margem superior negativa de -30px para a classe .map-marker */
 
 .address {
   box-sizing: border-box;
@@ -22,6 +24,7 @@
   top: 10px;
   transform: translateX(-50%);
 }
+/* Estiliza a classe .address para criar um elemento de endereço, com uma largura de 345px, padding de 12px, display flex e fundo com cor RGBA. Ele é posicionado absolutamente no centro horizontal da tela (50% à esquerda) e 10px no topo. A transformação translateX(-50%) o centraliza perfeitamente. */
 
 .addressField {
   box-sizing: border-box;
@@ -36,6 +39,7 @@
   outline: none;
   text-overflow: ellipsis;
 }
+/* Estiliza a classe .addressField para criar um campo de endereço com uma largura de 320px, altura de 35px, margem inferior de 8px, padding de 0 12px, borda com raio de 4px e sombra. Ele também define a fonte para 14px, remove a borda de foco e adiciona um efeito de truncamento de texto. */
 
 .routeInfo {
   box-sizing: border-box;
@@ -50,3 +54,5 @@
   text-overflow: ellipsis;
   background-color: #f8f8f8;
 }
+/* Estiliza a classe .routeInfo para criar uma caixa de informações de rota com uma largura de 100%, margem superior de 8px, padding de 8px 12px, borda com raio de 4px e sombra. Ele também define a fonte para 14px, remove a borda de foco, adiciona um efeito de truncamento de texto e define a cor de fundo como #f8f8f8. */
+

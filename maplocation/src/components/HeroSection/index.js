@@ -16,9 +16,15 @@ import {HeroContainer,
 const HeroSection = () => {
   const [hover, setHover] = useState(false)
 
+  // Define o estado 'hover' para controlar se o botão está em estado de sobreposição (hover) ou não
+  // Inicialmente, o estado é definido como 'false' (não está em hover)
+
   const onHover = () => {
     setHover(!hover)
   }
+
+   // Define a função 'onHover' que é chamada quando ocorre um evento de hover no botão
+   // Inverte o valor do estado 'hover' utilizando a função 'setHover'
 
   return (
     <HeroContainer>

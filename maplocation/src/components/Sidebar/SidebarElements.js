@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import {FaTimes} from 'react-icons/fa'
+import styled from 'styled-components';
+import { FaTimes } from 'react-icons/fa';
+import { Link as LinkS } from 'react-scroll';
+import { Link as LinkR } from 'react-router-dom';
 
-import { Link as LinkS} from 'react-scroll';
-import { Link as LinkR} from 'react-router-dom';
-
+// Define o estilo do container da barra lateral
 export const SidebarContainer = styled.aside`
     position: fixed;
     z-index: 999;
@@ -16,13 +16,14 @@ export const SidebarContainer = styled.aside`
     transition: 0.3s ease-in-out;
     opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
     top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
-`
+`;
 
-
+// Define o estilo do ícone de fechar a barra lateral
 export const CloseIcon = styled(FaTimes)`
     color: #fff;
-`
+`;
 
+// Define o estilo do ícone de menu da barra lateral
 export const Icon = styled.div`
     position: absolute;
     top: 1.2rem;
@@ -33,20 +34,24 @@ export const Icon = styled.div`
     outline: none;
 `;
 
+// Define o estilo do wrapper da barra lateral
 export const SidebarWrapper = styled.div`
     color: #fff;
-`
+`;
+
+// Define o estilo do menu da barra lateral
 export const SidebarMenu = styled.ul`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 80px);
     text-align: center;
 
-    @media screen and (max-width: 480px){
+    @media screen and (max-width: 480px) {
         grid-template-rows: repeat(6, 60px);
     }
-`
+`;
 
+// Define o estilo dos links do menu da barra lateral
 export const SidebarLink = styled(LinkS)`
     display: flex;
     align-items: center;
@@ -59,17 +64,19 @@ export const SidebarLink = styled(LinkS)`
     color: #fff;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         color: #01bf71;
         transition: 0.2s ease-in-out;
     }
-`
+`;
 
+// Define o estilo do wrapper do botão lateral
 export const SideBtnWrap = styled.div`
     display: flex;
     justify-content: center;
-`
+`;
 
+// Define o estilo do botão da rota da barra lateral
 export const SidebarRoute = styled(LinkR)`
     border-radius: 50px;
     background: #01bf71;
@@ -83,9 +90,9 @@ export const SidebarRoute = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     text-decoration: none;
 
-    &:hover{
+    &:hover {
         transition: all 0.2s ease-in-out;
         background: #fff;
         color: #010606;
     }
-`
+`;

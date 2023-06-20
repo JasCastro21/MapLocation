@@ -8,27 +8,33 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  // Manipula o envio do formulário
   const handleSubmit = async event => {
     event.preventDefault();
 
+    // Verifica se os campos de email correspondem
     if (email !== confirmEmail) {
       alert('Os campos de email não correspondem.');
       return;
     }
 
+    // Verifica se os campos de senha correspondem
     if (password !== confirmPassword) {
       alert('Os campos de senha não correspondem.');
       return;
     }
 
     try {
+      // Faz uma solicitação GET para verificar se o email já está registrado
       const response = await axios.get('http://localhost:3002/usuarios');
 
+      // Verifica se a resposta é válida
       if (!response.data || !Array.isArray(response.data)) {
         console.error('Unexpected response from server:', response.data);
         return;
       }
 
+      // Verifica se o email já está registrado
       const userExists = response.data.some(user => user.email === email);
 
       if (userExists) {
@@ -36,14 +42,17 @@ const SignUp = () => {
         return;
       }
 
+      // Cria um novo usuário com as informações fornecidas
       const newUser = {
         email,
         password,
       };
 
+      // Faz uma solicitação POST para adicionar o novo usuário
       const responsePost = await axios.post('http://localhost:3002/usuarios', newUser);
       console.log(responsePost.data);
 
+      // Limpa os campos do formulário
       setEmail('');
       setConfirmEmail('');
       setPassword('');
@@ -61,7 +70,7 @@ const SignUp = () => {
           <Icon to="/">MapLocation</Icon>
           <FormContent>
             <Form action="#" onSubmit={handleSubmit}>
-              <FormH1>Faça o Cadastro da sua conta </FormH1>
+              <FormH1>Faça o Cadastro da sua conta</FormH1>
               <FormLabel htmlFor='for'>Email</FormLabel>
               <FormInput type='email' required onChange={e => setEmail(e.target.value)} value={email} />
               <FormLabel htmlFor='for'>Confirmar Email</FormLabel>

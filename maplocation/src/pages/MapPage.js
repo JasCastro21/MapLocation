@@ -11,6 +11,7 @@ import { googleMapsApiKey } from "../App";
 import "./MapPage.css";
 
 const MapPage = () => {
+  // Declaração dos estados
   const [map, setMap] = useState();
   const [searchBoxA, setSearchBoxA] = useState();
   const [searchBoxB, setSearchBoxB] = useState();
@@ -28,6 +29,7 @@ const MapPage = () => {
     lng: -38.477828,
   };
 
+  // Funções de callback para carregamento do mapa e dos componentes de busca
   const onMapLoad = useCallback((map) => {
     setMap(map);
   }, []);
@@ -40,14 +42,18 @@ const MapPage = () => {
     setSearchBoxB(ref);
   }, []);
 
+  // Funções de callback para quando os lugares de busca mudarem
   const onPlacesChangedA = useCallback(() => {
+    // Obtém os lugares do componente de busca A
     const places = searchBoxA.getPlaces();
     const place = places[0];
     const location = {
       lat: place?.geometry?.location?.lat() || 0,
       lng: place?.geometry?.location?.lng() || 0,
     };
+    // Atualiza o estado do ponto A
     setPointA(location);
+    // Reinicia os estados relacionados à rota
     setOrigin(null);
     setDestination(null);
     setResponse(null);
@@ -57,13 +63,16 @@ const MapPage = () => {
   }, [searchBoxA]);
 
   const onPlacesChangedB = useCallback(() => {
+    // Obtém os lugares do componente de busca B
     const places = searchBoxB.getPlaces();
     const place = places[0];
     const location = {
       lat: place?.geometry?.location?.lat() || 0,
       lng: place?.geometry?.location?.lng() || 0,
     };
+    // Atualiza o estado do ponto B
     setPointB(location);
+    // Reinicia os estados relacionados à rota
     setOrigin(null);
     setDestination(null);
     setResponse(null);
@@ -72,14 +81,17 @@ const MapPage = () => {
     setClearRoute(true);
   }, [searchBoxB]);
 
+  // Função para traçar a rota
   const traceRoute = useCallback(() => {
     if (pointA && pointB) {
+      // Define os pontos de origem e destino para traçar a rota
       setOrigin(pointA);
       setDestination(pointB);
       setClearRoute(false);
     }
   }, [pointA, pointB]);
 
+  // Configurações para o serviço de direções
   const directionsServiceOptions = useMemo(() => {
     if (origin && destination) {
       return {
@@ -92,13 +104,16 @@ const MapPage = () => {
     }
   }, [origin, destination]);
 
+  // Função de callback para receber os resultados do serviço de direções
   const directionsCallback = useCallback(
     (res) => {
       if (res !== null && res.status === "OK") {
+        // Define a resposta do serviço de direções
         setResponse(res);
+        // Obtém os dados da rota
         const route = res.routes[0].legs[0];
-        setDistance(route.distance.text);
-        setDuration(route.duration.text);
+        setDistance(route.distance.text); // Define a distância
+        setDuration(route.duration.text); // Define a duração
       } else {
         console.log(res);
       }
@@ -106,6 +121,7 @@ const MapPage = () => {
     []
   );
 
+  // Configurações para o renderizador de direções
   const directionsRendererOptions = useMemo(() => {
     if (response) {
       return {
@@ -116,6 +132,7 @@ const MapPage = () => {
     }
   }, [response]);
 
+  // Função para converter os dados da rota em formato CSV
   const convertToCSV = (data) => {
     const rows = [
       ["origin", "destination", "distance", "duration"], // Cabeçalho
@@ -132,6 +149,7 @@ const MapPage = () => {
     return encodeURI(csvContent);
   };
 
+  // Função para lidar com o download do arquivo CSV
   const handleDownload = () => {
     const data = {
       origin: pointA,
@@ -159,6 +177,7 @@ const MapPage = () => {
           zoom={15}
         >
           <div className="address">
+            {/* Componente de busca para o endereço A */}
             <StandaloneSearchBox
               onLoad={onLoadA}
               onPlacesChanged={onPlacesChangedA}
@@ -168,6 +187,7 @@ const MapPage = () => {
                 placeholder="Digite o endereço inicial"
               />
             </StandaloneSearchBox>
+            {/* Componente de busca para o endereço B */}
             <StandaloneSearchBox
               onLoad={onLoadB}
               onPlacesChanged={onPlacesChangedB}
@@ -186,14 +206,17 @@ const MapPage = () => {
             )}
             <button onClick={handleDownload}>Baixar CSV</button>
           </div>
+          {/* Marcadores para os pontos A e B */}
           {!clearRoute && !response && pointA && <Marker position={pointA} />}
           {!clearRoute && !response && pointB && <Marker position={pointB} />}
+          {/* Serviço de direções */}
           {directionsServiceOptions && (
             <DirectionsService
               options={directionsServiceOptions}
               callback={directionsCallback}
             />
           )}
+          {/* Renderizador de direções */}
           {directionsRendererOptions && (
             <DirectionsRenderer options={directionsRendererOptions} />
           )}

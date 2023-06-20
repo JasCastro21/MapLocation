@@ -1,4 +1,3 @@
-
 export const homeObjOne = {
     id: 'about',
     lightBg: false,
@@ -14,9 +13,14 @@ export const homeObjOne = {
     dark: true,
     primary: true,
     darkText: false
-}
-
-export const homeObjTwo = {
+  };
+  
+  // Objeto homeObjOne contendo informações sobre a primeira seção do componente Home
+  // Define a aparência da seção, como cores de fundo e texto
+  // Contém informações de texto, como título, descrição e texto do botão
+  // Define a posição e a imagem associada à seção
+  
+  export const homeObjTwo = {
     id: 'discover',
     lightBg: true,
     lightText: false,
@@ -31,15 +35,20 @@ export const homeObjTwo = {
     dark: false,
     primary: false,
     darkText: true
-}
-
-export const homeObjThree = {
+  };
+  
+  // Objeto homeObjTwo contendo informações sobre a segunda seção do componente Home
+  // Define a aparência da seção, como cores de fundo e texto
+  // Contém informações de texto, como título, descrição e texto do botão
+  // Define a posição e a imagem associada à seção
+  
+  export const homeObjThree = {
     id: 'signup',
     lightBg: true,
     lightText: false,
     lightTextDesc: false,
     topLine: 'Cadastre-se agora!',
-    headline: 'Crie sua conta no MapLocation facilmente ',
+    headline: 'Crie sua conta no MapLocation facilmente',
     description: "Crie sua conta no MapLocation com facilidade e desfrute de uma experiência de navegação excepcional. Explore mapas interativos, rotas precisas e pontos de interesse. Junte-se agora e comece a sua jornada!",
     buttonLabel: 'Cadastre-se',
     imgStart: false,
@@ -48,4 +57,10 @@ export const homeObjThree = {
     dark: false,
     primary: false,
     darkText: true
-}
+  };
+  
+  // Objeto homeObjThree contendo informações sobre a terceira seção do componente Home
+  // Define a aparência da seção, como cores de fundo e texto
+  // Contém informações de texto, como título, descrição e texto do botão
+  // Define a posição e a imagem associada à seção
+  

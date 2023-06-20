@@ -5,7 +5,9 @@ import ScrollToTop from '../components/ScrollToTop'
 const SigninPage = () => {
   return (
     <>
-    <ScrollToTop/>
+      {/* Componente ScrollToTop para rolar a página para o topo */}
+      <ScrollToTop/>
+      {/* Componente SignUp para exibir o formulário de cadastro */}
       <SignUp />
     </>
   )

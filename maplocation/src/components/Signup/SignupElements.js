@@ -1,8 +1,7 @@
-
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
+// Estiliza o container do formulário de cadastro
 export const Container = styled.div`
     min-height: 692px;
     position: fixed;
@@ -19,6 +18,7 @@ export const Container = styled.div`
     );
 `;
 
+// Estiliza o wrapper do formulário de cadastro
 export const FormWrap = styled.div`
     height: 100%;
     display: flex;
@@ -30,6 +30,7 @@ export const FormWrap = styled.div`
     }
 `;
 
+// Estiliza o ícone do formulário de cadastro
 export const Icon = styled(Link)`
     margin-left: 32px;
     margin-top: 32px;
@@ -44,6 +45,7 @@ export const Icon = styled(Link)`
     }
 `;
 
+// Estiliza o conteúdo do formulário de cadastro
 export const FormContent = styled.div`
     height: 100%;
     display: flex;
@@ -55,6 +57,7 @@ export const FormContent = styled.div`
     }
 `;
 
+// Estiliza o formulário de cadastro
 export const Form = styled.form`
     background: #010101;
     max-width: 380px;
@@ -72,6 +75,7 @@ export const Form = styled.form`
     }
 `;
 
+// Estiliza o título do formulário de cadastro
 export const FormH1 = styled.h1`
     margin-bottom: 40px;
     color: #fff;
@@ -80,12 +84,14 @@ export const FormH1 = styled.h1`
     text-align: center;
 `;
 
+// Estiliza as etiquetas do formulário de cadastro
 export const FormLabel = styled.label`
     margin-bottom: 8px;
     font-size: 14px;
     color: #fff;
 `;
 
+// Estiliza as entradas de texto do formulário de cadastro
 export const FormInput = styled.input`
     padding: 10px 10px;
     margin-bottom: 32px;
@@ -93,6 +99,7 @@ export const FormInput = styled.input`
     border-radius: 4px;
 `;
 
+// Estiliza o botão de envio do formulário de cadastro
 export const FormButton = styled.button`
     background: #01bf71;
     padding: 16px 0;
@@ -103,6 +110,7 @@ export const FormButton = styled.button`
     cursor: pointer;
 `;
 
+// Estiliza o texto de link do formulário de cadastro
 export const Text = styled(Link)`
     text-align: center;
     margin-top: 24px;

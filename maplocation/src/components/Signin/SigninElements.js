@@ -1,8 +1,7 @@
-
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
+// Define o estilo para o contêiner principal
 export const Container = styled.div`
     min-height: 692px;
     position: fixed;
@@ -19,6 +18,7 @@ export const Container = styled.div`
     );
 `;
 
+// Define o estilo para o contêiner do formulário
 export const FormWrap = styled.div`
     height: 100%;
     display: flex;
@@ -30,6 +30,7 @@ export const FormWrap = styled.div`
     }
 `;
 
+// Define o estilo para o ícone de volta para a página inicial
 export const Icon = styled(Link)`
     margin-left: 32px;
     margin-top: 32px;
@@ -44,6 +45,7 @@ export const Icon = styled(Link)`
     }
 `;
 
+// Define o estilo para o conteúdo do formulário
 export const FormContent = styled.div`
     height: 100%;
     display: flex;
@@ -55,6 +57,7 @@ export const FormContent = styled.div`
     }
 `;
 
+// Define o estilo para o formulário
 export const Form = styled.form`
     background: #010101;
     max-width: 400px;
@@ -72,6 +75,7 @@ export const Form = styled.form`
     }
 `;
 
+// Define o estilo para o título do formulário
 export const FormH1 = styled.h1`
     margin-bottom: 40px;
     color: #fff;
@@ -80,12 +84,14 @@ export const FormH1 = styled.h1`
     text-align: center;
 `;
 
+// Define o estilo para o rótulo do campo de entrada
 export const FormLabel = styled.label`
     margin-bottom: 8px;
     font-size: 14px;
     color: #fff;
 `;
 
+// Define o estilo para o campo de entrada
 export const FormInput = styled.input`
     padding: 16px 16px;
     margin-bottom: 32px;
@@ -93,6 +99,7 @@ export const FormInput = styled.input`
     border-radius: 4px;
 `;
 
+// Define o estilo para o botão do formulário
 export const FormButton = styled.button`
     background: #01bf71;
     padding: 16px 0;
@@ -103,6 +110,7 @@ export const FormButton = styled.button`
     cursor: pointer;
 `;
 
+// Define o estilo para o texto com link
 export const Text = styled(Link)`
     text-align: center;
     margin-top: 24px;

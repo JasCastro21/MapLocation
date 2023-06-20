@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Importação dos elementos do estilo do rodapé
 import {
   FooterContainer,
   FooterWrap,
@@ -14,13 +16,18 @@ import {
   SocialIcons,
   SocialIconLink
 } from './FooterElements';
+
+// Importação dos ícones das redes sociais
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa';
+
+// Importação da função de rolagem suave
 import { animateScroll as scroll } from 'react-scroll';
 
 const Footer = () => {
 
+  // Função para rolar suavemente para o topo da página
   const toggleHome = () => {
-    scroll.scrollToTop()
+    scroll.scrollToTop();
   };
 
   return (
