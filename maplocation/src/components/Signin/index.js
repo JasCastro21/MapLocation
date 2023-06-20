@@ -13,9 +13,17 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3002/usuarios', { email, password });
-      console.log(response.data);
-      history.push('/map');
+      const response = await axios.get('http://localhost:3002/usuarios'); 
+      const data = response.data;
+
+      
+      const isUserValid = data.some(user => user.email === email && user.password === password);
+
+      if (isUserValid) {
+        history.push('/map');
+      } else {
+        console.log('Credenciais inválidas');
+      }
     } catch (error) {
       console.error(error);
     }
@@ -28,13 +36,13 @@ const SignIn = () => {
           <Icon to="/">MapLocation</Icon>
           <FormContent>
             <Form action="#" onSubmit={handleSubmit}>
-              <FormH1>Faça Login na sua conta </FormH1>
+              <FormH1>Faça Login na sua conta</FormH1>
               <FormLabel htmlFor='for'>Email</FormLabel>
               <FormInput type='email' required onChange={e => setEmail(e.target.value)} />
               <FormLabel htmlFor='for'>Password</FormLabel>
               <FormInput type='password' required onChange={e => setPassword(e.target.value)} />
               <FormButton type='submit'>Continuar</FormButton>
-              <Text>Esqueceu sua senha ?</Text>
+              <Text>Esqueceu sua senha?</Text>
               <Text to="/signup">Cadastre-se</Text>
             </Form>
           </FormContent>
