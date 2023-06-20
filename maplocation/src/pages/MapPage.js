@@ -92,16 +92,19 @@ const MapPage = () => {
     }
   }, [origin, destination]);
 
-  const directionsCallback = useCallback((res) => {
-    if (res !== null && res.status === "OK") {
-      setResponse(res);
-      const route = res.routes[0].legs[0];
-      setDistance(route.distance.text);
-      setDuration(route.duration.text);
-    } else {
-      console.log(res);
-    }
-  }, []);
+  const directionsCallback = useCallback(
+    (res) => {
+      if (res !== null && res.status === "OK") {
+        setResponse(res);
+        const route = res.routes[0].legs[0];
+        setDistance(route.distance.text);
+        setDuration(route.duration.text);
+      } else {
+        console.log(res);
+      }
+    },
+    []
+  );
 
   const directionsRendererOptions = useMemo(() => {
     if (response) {
@@ -113,12 +116,42 @@ const MapPage = () => {
     }
   }, [response]);
 
+  const convertToCSV = (data) => {
+    const rows = [
+      ["origin", "destination", "distance", "duration"], // Cabeçalho
+      [data.origin, data.destination, data.distance, data.duration], // Dados
+    ];
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+
+    rows.forEach((rowArray) => {
+      const row = rowArray.join(",");
+      csvContent += row + "\r\n";
+    });
+
+    return encodeURI(csvContent);
+  };
+
+  const handleDownload = () => {
+    const data = {
+      origin: pointA,
+      destination: pointB,
+      distance: distance,
+      duration: duration,
+    };
+
+    const csvContent = convertToCSV(data);
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "route.csv");
+    document.body.appendChild(link);
+    link.click();
+  };
+
   return (
     <div className="map">
-      <LoadScript
-        googleMapsApiKey={googleMapsApiKey}
-        libraries={["places"]}
-      >
+      <LoadScript googleMapsApiKey={googleMapsApiKey} libraries={["places"]}>
         <GoogleMap
           onLoad={onMapLoad}
           mapContainerStyle={{ width: "100%", height: "100%" }}
@@ -151,6 +184,7 @@ const MapPage = () => {
                 <p>Duração: {duration}</p>
               </div>
             )}
+            <button onClick={handleDownload}>Baixar CSV</button>
           </div>
           {!clearRoute && !response && pointA && <Marker position={pointA} />}
           {!clearRoute && !response && pointB && <Marker position={pointB} />}
