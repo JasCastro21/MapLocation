@@ -14,6 +14,8 @@ Em resumo, o MapLocation é um site que oferece uma experiência interativa de v
 
 1. Após baixar o arquivo, abra o terminal do VS Code e navegue até a pasta "maplocation" digitando o comando: `cd maplocation`.
 
+2. Instale as dependências listadas no arquivo digitando o comando: `yarn install` ou `npm install`
+
 2. Execute o servidor local (localhost) utilizando o seguinte comando: `json-server --watch src/db.json --port 3002`. Certifique-se de estar na mesma pasta onde se encontra o arquivo "db.json".
 
 3. Abra um novo terminal para visualizar a página web. Navegue novamente até a pasta "maplocation" digitando o comando: `cd maplocation`. Em seguida, execute o comando `yarn start` ou `npm start`, dependendo da sua preferência, para iniciar a aplicação. 
@@ -34,6 +36,11 @@ Aproveite todas as funcionalidades do site e tenha uma ótima experiência de na
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
+# Informações adicionais
+
+Todos os códigos estão comentados para facilitar a compreensão do projeto.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
