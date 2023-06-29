@@ -1,4 +1,4 @@
-# Teste-de-Seletiva-Vantech-Front
+# MapLocation 
 
 Bem-vindo(a) ao MapLocation! Este arquivo apresenta uma página web chamada "MapLocation". Nesta aplicação, após realizar o cadastro e o login, você será redirecionado(a) para uma página onde poderá visualizar um mapa interativo.
 
